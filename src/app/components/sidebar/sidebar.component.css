@@ -165,10 +165,12 @@
   /* Track */
   ::-webkit-scrollbar-track {
     border-radius: 10px;
+
   }
 
   /* Handle */
   ::-webkit-scrollbar-thumb {
+    height: 40px;
     background: gray;
     border-radius: 10px;
   }
@@ -177,9 +179,6 @@
   ::-webkit-scrollbar-thumb:hover {
     background: gray;
   }
-
-
-
 
 }
 

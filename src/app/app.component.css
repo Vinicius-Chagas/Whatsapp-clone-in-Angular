@@ -33,6 +33,35 @@
 
     #chat{
       flex-basis: 70%;
+      background-color: #f7f9fa;
+      flex-grow: 1;
+      border-left: 1px solid #e8e8e8;
+
+      #chatPlaceholder{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 400px;
+          height: 400px;
+        }
+
+        h2{
+          font-size: 30px;
+          color: #545454;
+        }
+
+        p{
+          font-size: 16px;
+        }
+
+        a{
+          color:green;
+
+        }
+      }
 
     }
   }
