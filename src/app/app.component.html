@@ -8,27 +8,13 @@
 </head>
 <body>
   <div id="background_header"></div>
-<div id="background_body"></div>
-<div id="chat_container">
-    <div id="sidebar">
-      <div id="sidebarHeader">
 
+  <div id="background_body"></div>
 
-      </div>
-
-      <div id="searchbox">
-        <img src="../assets/images/magnifying-glass.png" alt="search">
-        <input type="text" placeholder="Search to start a new chat">
-      </div>
-
-      <div id="sidebarContent">
-          <div id="noConvesations">
-            All chats are archived
-          </div>
-      </div>
-    </div>
-    <div id="chat"></div>
-</div>
+  <div id="chat_container">
+      <app-sidebar></app-sidebar>
+      <div id="chat"></div>
+  </div>
 <router-outlet></router-outlet>
 </body>
 </html>
