@@ -1,1 +1,43 @@
-<p>chat works!</p>
+<div id="container">
+
+  <div id="header">
+    <div class="avatar">
+      <div class="picture">
+        <img src="../../../assets/images/user.png" alt="">
+      </div>
+      <div class="name">
+
+      </div>
+    </div>
+    <div class="actionButtons">
+      <img src="../../../assets/images/attached.svg" alt="">
+      <img src="../../../assets/images/more.png" alt="">
+    </div>
+  </div>
+
+  <div id="body">
+    <div class="message" [ngClass]="{me: message.sender_id.phone_number == myNumber}" *ngFor="let message of (conversation?.messages)">
+      <div class="messageContent">
+        {{message.message}}
+          <div class="time">
+            {{message.created | date: 'h:mm'}}
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    <div id="emoji" >
+      <img src="../../../assets/images/smileIcon.svg" alt="">
+    </div>
+
+    <div id="textinput">
+      <input type="text" id="message" placeholder="Type something" (keyup.enter)="submitMessage($event)">
+    </div>
+
+    <div id="audio">
+      <img src="../../../assets/images/voiceIcon.svg" alt="">
+    </div>
+  </div>
+
+</div>

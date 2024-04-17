@@ -1,0 +1,17 @@
+<div id="loginContent">
+  <div class="form">
+    <form class="register-form" (ngSubmit)="sendSignInRequest()" *ngIf="createAnAccount" #registerForm>
+      <input type="text" [(ngModel)]="phone_number" [ngModelOptions]="{standalone: true}" placeholder="phone number">
+      <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="password">
+      <input type="password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" placeholder="confirm password">
+      <button type="submit">create</button>
+      <p class="message">Already registered? <a (click)="createAnAccountFunction()" style="cursor:pointer">Sign In</a></p>
+    </form>
+    <form class="login-form" (ngSubmit)="sendLoginRequest()" #loginForm *ngIf="!createAnAccount">
+      <input type="text" [(ngModel)]="phone_number" [ngModelOptions]="{standalone: true}" placeholder="username">
+      <input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="password">
+      <button type="submit" >login</button>
+      <p class="message">Not registered? <a (click)="createAnAccountFunction()" style="cursor:pointer">Create an account</a></p>
+    </form>
+  </div>
+</div>

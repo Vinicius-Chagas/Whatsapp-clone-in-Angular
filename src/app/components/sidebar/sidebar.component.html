@@ -14,7 +14,7 @@
 
     <div id="searchbox">
       <img src="../assets/images/magnifying-glass.png" alt="search">
-      <input type="text" placeholder="Search to start a new chat">
+      <input [(ngModel)]='searchText' type="text" placeholder="Search to start a new chat">
     </div>
   </div>
 
@@ -23,19 +23,21 @@
       <!---<div id="noConvesations">
         All chats are archived
       </div>--->
-      <div class="conversations" *ngFor="let conversation of conversations">
+      <div class="conversations" *ngFor="let conversation of (conversations)"
+      (click)="conversationClicked.emit({conversation, myNumber})"
+      >
         <div class="picture">
           <img src="../../../assets/images/user.png" alt="">
         </div>
         <div class="content">
           <div class="conversationHeader">
-            <div class="name">{{conversation.name}}</div>
-            <div class="time">{{conversation.time}}</div>
+            <div class="name">{{conversation.receiver_id.phone_number}}</div>
+            <div class="time">{{conversation.messages?.at(0)?.created | date: 'h:mm'}}</div>
           </div>
           <div class="conversationMessage">
-            <img *ngIf="!conversation.readMessage" src="../../../assets/images/doubleTick.svg" alt="">
-            <img *ngIf="conversation.readMessage" src="../../../assets/images/doubleTickBlue.svg" alt="">
-            {{conversation.message}}
+            <img *ngIf="conversation.sender_id.phone_number == myNumber" src="../../../assets/images/doubleTick.svg" alt="">
+            <img *ngIf="conversation.sender_id.phone_number != myNumber" src="../../../assets/images/doubleTickBlue.svg" alt="">
+            {{conversation.messages?.at(0)?.message}}
           </div>
         </div>
       </div>

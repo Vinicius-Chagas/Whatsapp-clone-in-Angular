@@ -1,0 +1,148 @@
+
+#container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background-color: #e7dfdc;
+
+  #header{
+    min-Height: 67px;
+    background-color: #eeeeee;
+    box-shadow: 0px 2px 4px #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .avatar{
+      display: flex;
+
+      .picture{
+        min-width: 50px;
+        max-width: 50px;
+        margin: 0 10px;
+
+        img{
+          max-width: 50px;
+          border-radius: 25px;
+          border: 1px solid black;
+        }
+      }
+      .name{
+        flex-grow: 1;
+        color: #545454;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .actionButtons{
+      min-width: 50px;
+      max-width: 80px;
+      display: flex;
+      flex-direction: row;
+
+      img{
+        width: 25px;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  #body{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    padding: 20px 50px;
+    overflow: auto;
+
+    .message{
+      display: flex;
+      margin-top: 10px;
+      align-items: flex-start;
+      color: black;
+      flex-direction: column;
+
+      .messageContent{
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 10px;
+        display: flex;
+        max-width: 50%;
+
+        .time{
+          flex-basis: auto;
+          text-align: right;
+          align-items: flex-end;
+          color: #cecece;
+          display: flex;
+          font-size: 13px;
+          position:relative;
+          bottom: -6px;
+          right: -5px;
+          padding-left: 10px;
+        }
+
+      }
+
+      &.me{
+        align-items: flex-end;
+        .messageContent{
+          background-color: #dcf7c5;
+        }
+      }
+    }
+  }
+
+  #footer{
+    min-Height: 67px;
+    background-color: #f0eeed;
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+
+      #emoji{
+        flex-basis: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+          height: 40%;
+          width: 40%;
+          cursor: pointer;
+        }
+      }
+
+      #textinput{
+        flex-grow: 1;
+        display: flex;
+        padding: 12px 0px;
+
+        input{
+          flex-grow: 1;
+          border-radius: 5px;
+          padding-left: 15px;
+          border: 0px;
+          outline: none;
+          resize: none;
+          box-sizing: border-box;
+        }
+      }
+
+      #audio{
+        flex-basis: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+          width: 40%;
+          height: 40%;
+          cursor: pointer;
+        }
+      }
+  }
+}
