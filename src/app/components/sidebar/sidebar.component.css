@@ -59,11 +59,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      position:relative;
 
-      img{
+      #search{
         position:absolute;
         left: 30px;
         width:20px;
+      }
+
+      #add{
+        position: absolute;
+        right: 20px;
+        width: 20px;
+        cursor:pointer;
       }
 
       input{

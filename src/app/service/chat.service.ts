@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import SockJS from 'sockjs-client';
 import {Stomp} from '@stomp/stompjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Chats } from '../interfaces/chats';
 import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
 import { LoginService } from './login.service';
@@ -66,6 +66,29 @@ export class ChatService {
     }
 
   }
+
+  //For new chats, checks if the user exists and if so, sends a message to create a chat
+  async createChat(receiverNumber:string): Promise<Chats | null>{
+    try{
+        const body = {senderNumber:this.user?.phone_number, receiverNumber:receiverNumber}
+         const response:Chats | null = await firstValueFrom(this.http.post<Chats | null>(`http://localhost:8080/createChat`,body,
+          {headers: new HttpHeaders(
+            { 'Content-Type': 'application/json' 
+          }) 
+        }));
+         console.log({response})
+         if(response != null){
+           return response;
+         }
+         else{
+          alert("Couldnt create chat");
+          return null;
+         } 
+      } catch(error){
+          throw new Error("Erro ao buscar chats");
+      }
+ 
+   }
 
   async getMessages(chatID:number):Promise<Message[]>{
     try{

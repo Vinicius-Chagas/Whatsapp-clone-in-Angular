@@ -35,4 +35,25 @@ conversations: Chats[] | null= [];
 
   }
 
+  get searchChatOrUser(): Chats[] | null{
+    if(!this.searchText){
+      return this.conversations;
+    }
+    else{
+      return this.conversations!.filter((conversation) => {
+        return (conversation.sender_id.phone_number.startsWith(this.searchText) && conversation.sender_id.phone_number != this.myNumber ) ||
+        (conversation.receiver_id.phone_number.startsWith(this.searchText) && conversation.receiver_id.phone_number != this.myNumber);
+      })
+    }
+  }
+
+  createChat():void{
+    console.log("criando");
+    this.chatService.createChat(this.searchText).then((response) => {this.conversations?.push(response!)});
+  }
+
+  isNumeric() {
+    return /^\d+$/.test(this.searchText); 
+  }
+
 }

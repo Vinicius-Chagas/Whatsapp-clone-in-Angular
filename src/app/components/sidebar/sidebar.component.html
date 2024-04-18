@@ -13,8 +13,9 @@
     </div>
 
     <div id="searchbox">
-      <img src="../assets/images/magnifying-glass.png" alt="search">
-      <input [(ngModel)]='searchText' type="text" placeholder="Search to start a new chat">
+      <img id="search" src="../assets/images/magnifying-glass.png" alt="search">
+      <input [(ngModel)]='searchText' type="text" placeholder="Search and press enter to start a new chat">
+      <img id="add" src="../../../assets/images/icons8-add-50.png" (click)="createChat()" *ngIf="searchText && searchChatOrUser && isNumeric()">
     </div>
   </div>
 
@@ -23,7 +24,7 @@
       <!---<div id="noConvesations">
         All chats are archived
       </div>--->
-      <div class="conversations" *ngFor="let conversation of (conversations)"
+      <div class="conversations" *ngFor="let conversation of !searchText ? conversations : searchChatOrUser"
       (click)="conversationClicked.emit({conversation, myNumber})"
       >
         <div class="picture">
